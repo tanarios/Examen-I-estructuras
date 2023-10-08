@@ -4,3 +4,9 @@ Baraja::Baraja() {
 	
 }
 
+Baraja::~Baraja() {
+    
+}
+
+
+
