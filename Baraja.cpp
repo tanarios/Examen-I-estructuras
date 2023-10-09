@@ -1,31 +1,32 @@
 #include "Baraja.h"
+#include <random>
 
-Baraja::Baraja() : primera_carta(nullptr) {
-	// (El código que inicializa la baraja)
-	// Crear las 52 cartas y agregarlas a la baraja
-	string valores[] = {"As", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
-	string palos[] = {"Corazones", "Diamantes", "Treboles", "Picas"};
-	
-	for (int i = 0; i < 13; ++i) {
-		for (int j = 0; j < 4; ++j) {
-			Carta* nueva_carta = new Carta(valores[i], palos[j]);
-			if (!primera_carta) {
-				primera_carta = nueva_carta;
-			} else {
-				Carta* temp = primera_carta;
-				while (temp->siguiente) {
-					temp = temp->siguiente;
-				}
-				temp->siguiente = nueva_carta;
-			}
+Baraja::Baraja() {
+	// Inicializar la baraja con las 52 cartas
+	string palos[] = {"Treboles", "Corazones", "Diamantes", "Picas"};
+	for (string palo : palos) {
+		for (int valor = 1; valor <= 13; valor++) {
+			cartas.push_back(Carta(valor, palo));
 		}
 	}
 }
 
-void Baraja::mostrarBaraja() {
-	Carta* temp = primera_carta;
-	while (temp) {
-		cout << temp->valor << " de " << temp->palo << endl;
-		temp = temp->siguiente;
+void Baraja::mezclar() {
+	srand(time(0)); // Semilla para generar números aleatorios
+	int size = cartas.size();
+	
+	for (int i = 0; i < size; i++) {
+		int random_pos = rand() % size;
+		auto it1 = next(cartas.begin(), i);
+		auto it2 = next(cartas.begin(), random_pos);
+		
+		swap(*it1, *it2);
 	}
 }
+
+Carta Baraja::sacarCarta() {
+	Carta carta = cartas.front();
+	cartas.pop_front();
+	return carta;
+}
+

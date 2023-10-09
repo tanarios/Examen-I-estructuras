@@ -1,32 +1,26 @@
 #include "Jugador.h"
 
-Jugador::Jugador() {
-	nombre = "";
-	saldo= 500; //el saldo inicial es de 500 monedas
+Jugador::Jugador(std::string nombre, int saldo) : nombre(nombre), saldo(saldo) {}
+
+void Jugador::agregarCarta(Carta carta) {
+	mano.push(carta);
 }
 
-Jugador::Jugador(string nombre, int saldo){
-	this->nombre=nombre;
-	this->saldo=saldo;
-	
-}
-Jugador::~Jugador(){
-	
+Carta Jugador::sacarCarta() {
+	Carta carta = mano.top();
+	mano.pop();
+	return carta;
 }
 
-string Jugador::getNombre(){
+bool Jugador::tieneCartas() {
+	return !mano.empty();
+}
+
+std::string Jugador::getNombre() {
 	return nombre;
 }
 
-void Jugador::setNombre(string nombre){
-	this->nombre=nombre;
-}
-
-int Jugador::getSaldo(){
+int Jugador::getSaldo() {
 	return saldo;
-}
-
-void Jugador::setSaldo(int saldo){
-	this->saldo=saldo;
 }
 

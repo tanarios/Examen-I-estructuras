@@ -1,14 +1,21 @@
 #ifndef BARAJA_H
 #define BARAJA_H
-
 #include "Carta.h"
+#include <list>
+#include <iostream>
+#include <ctime>
+using namespace std;
 
 class Baraja {
 private:
-	Carta* primera_carta;
+	list<Carta> cartas;
 public:
 	Baraja();
-	void mostrarBaraja();
+	void mezclar();
+	Carta sacarCarta();
 };
+
+
+
 
 #endif // BARAJA_H

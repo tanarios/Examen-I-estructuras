@@ -1,4 +1,11 @@
 #include "Carta.h"
 
-Carta::Carta(string v, string p) : valor(v), palo(p), siguiente(nullptr) {}
+Carta::Carta(int valor, string palo) : valor(valor), palo(palo) {}
 
+int Carta::getValor() {
+	return valor;
+}
+
+std::string Carta::getPalo() {
+	return palo;
+}

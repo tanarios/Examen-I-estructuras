@@ -1,26 +1,24 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
-#include <iostream>
-using namespace std;
+
+#include "Carta.h"
+#include <stack>
+#include <string>
 
 class Jugador {
-public:
-	Jugador();
-	Jugador(string nombre, int saldo);
-	~Jugador();
-	void setSaldo(int saldo);
-	void setNombre(string nombre);
-	int getSaldo();
-	string getNombre();
-	string toString();
-	
-	//metodos
-	
-	
 private:
-	string nombre;
-	int saldo; //vease tambien como monedas
+	std::stack<Carta> mano;
+	std::string nombre;
+	int saldo;
+	
+public:
+	Jugador(std::string nombre, int saldo);
+	void agregarCarta(Carta carta);
+	Carta sacarCarta();
+	bool tieneCartas();
+	std::string getNombre();
+	int getSaldo();
 };
 
-#endif
+#endif // JUGADOR_H
 
