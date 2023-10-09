@@ -1,14 +1,17 @@
 #ifndef JUGADOR_H
 #define JUGADOR_H
+#include <iostream>
+using namespace std;
 
 class Jugador {
 public:
 	Jugador();
-	Jugador(string nombre);
-	void set saldo():
-	int get saldo();
-	void set nombre();
-	string get nombre();
+	Jugador(string nombre, int saldo);
+	~Jugador();
+	void setSaldo(int saldo);
+	void setNombre(string nombre);
+	int getSaldo();
+	string getNombre();
 	string toString();
 	
 	//metodos

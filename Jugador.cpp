@@ -14,7 +14,7 @@ Jugador::~Jugador(){
 	
 }
 
-string Jugador;:getNombre(){
+string Jugador::getNombre(){
 	return nombre;
 }
 

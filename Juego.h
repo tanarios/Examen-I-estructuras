@@ -1,10 +1,12 @@
 #ifndef JUEGO_H
 #define JUEGO_H
+#include <iostream>
+using namespace std;
 
-class juego {
+class Juego {
 public:
-	juego();
-	~juego();
+	Juego();
+	~Juego();
 	void agregarJugador();//se agregan a una pila o cola cada jugador
 	void repartirCartas();//se reparten 2 por jugador
 	void mostrarCartas();//este metodo es para mostrar las cartas de cada jugador
